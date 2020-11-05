@@ -1,4 +1,6 @@
 export default {
+  ssr: false,
+  env: { ...process.env },
   loading: '~/components/loading.vue',
   head: {
     title: 'Zenderu',
@@ -10,7 +12,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: ['~/assets/scss/app.scss'],
-  plugins: ['~/plugins/i18n.js', '~/plugins/vuelidate.js'],
+  plugins: [
+    '~/plugins/i18n.js',
+    '~/plugins/vuelidate.js',
+    '~/plugins/simplebar.js',
+    '~/plugins/vue-click-outside.js',
+  ],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
   modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios', '@nuxtjs/pwa'],

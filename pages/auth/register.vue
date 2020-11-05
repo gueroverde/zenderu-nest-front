@@ -7,33 +7,17 @@
     </div>
     <div class="account-pages my-5 pt-sm-5">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-center">
-              <nuxt-link to="/" class="mb-5 d-block auth-logo">
-                <img
-                  src="~/assets/images/logo-dark.png"
-                  alt
-                  height="22"
-                  class="logo logo-dark"
-                />
-                <img
-                  src="~/assets/images/logo-light.png"
-                  alt
-                  height="22"
-                  class="logo logo-light"
-                />
-              </nuxt-link>
-            </div>
-          </div>
-        </div>
         <div class="row align-items-center justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="card">
               <div class="card-body p-4">
-                <div class="text-center mt-2">
-                  <h5 class="text-primary">Register Account</h5>
-                  <p class="text-muted">Get your free Minible account now.</p>
+                <div class="text-start mt-2">
+                  <img
+                    src="~/assets/images/logo-dark.svg"
+                    alt=""
+                    height="50"
+                    class="logo logo-dark"
+                  />
                 </div>
                 <div class="p-2 mt-4">
                   <div
@@ -46,36 +30,36 @@
                   <b-form @submit.prevent="tryToRegisterIn">
                     <b-form-group
                       id="email-group"
-                      label="Username"
-                      label-for="username"
+                      label=""
+                      label-for="fullName"
                     >
                       <b-form-input
-                        id="username"
-                        v-model="user.username"
+                        id="fullName"
+                        v-model="user.fullName"
                         type="text"
-                        placeholder="Enter username"
+                        placeholder="Nombre completo"
                         :class="{
-                          'is-invalid': submitted && $v.user.username.$error,
+                          'is-invalid': submitted && $v.user.fullName.$error,
                         }"
                       ></b-form-input>
                       <div
-                        v-if="submitted && !$v.user.username.required"
+                        v-if="submitted && !$v.user.fullName.required"
                         class="invalid-feedback"
                       >
-                        Username is required.
+                        El nombre completo es requerido.
                       </div>
                     </b-form-group>
 
                     <b-form-group
                       id="fullname-group"
-                      label="Email"
+                      label=""
                       label-for="email"
                     >
                       <b-form-input
                         id="email"
                         v-model="user.email"
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Email"
                         :class="{
                           'is-invalid': submitted && $v.user.email.$error,
                         }"
@@ -85,24 +69,24 @@
                         class="invalid-feedback"
                       >
                         <span v-if="!$v.user.email.required"
-                          >Email is required.</span
+                          >El email es requerido.</span
                         >
                         <span v-if="!$v.user.email.email"
-                          >Please enter valid email.</span
+                          >Por favor introduce un email válido.</span
                         >
                       </div>
                     </b-form-group>
 
                     <b-form-group
                       id="password-group"
-                      label="Password"
+                      label=""
                       label-for="password"
                     >
                       <b-form-input
                         id="password"
                         v-model="user.password"
                         type="password"
-                        placeholder="Enter password"
+                        placeholder="Contraseña"
                         :class="{
                           'is-invalid': submitted && $v.user.password.$error,
                         }"
@@ -111,7 +95,7 @@
                         v-if="submitted && !$v.user.password.required"
                         class="invalid-feedback"
                       >
-                        Password is required.
+                        La contraseña es requerida.
                       </div>
                     </b-form-group>
                     <div class="custom-control custom-checkbox">
@@ -124,57 +108,42 @@
                         class="custom-control-label"
                         for="auth-terms-condition-check"
                       >
-                        I accept
+                        Acepto los
                         <a href="javascript: void(0);" class="text-dark"
-                          >Terms and Conditions</a
+                          >Terminos y condiciones</a
                         >
                       </label>
                     </div>
                     <div class="mt-3 text-right">
-                      <b-button type="submit" variant="primary" class="w-sm"
-                        >Register</b-button
+                      <b-button
+                        type="submit"
+                        variant="primary"
+                        class="w-sm btn-block"
+                        >Registrate</b-button
                       >
                     </div>
 
                     <div class="mt-4 text-center">
                       <div class="signin-other-title">
-                        <h5 class="font-size-14 mb-3 title">Sign up using</h5>
+                        <h5 class="font-size-14 mb-3 title">Registrate con</h5>
                       </div>
 
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-primary text-white border-primary"
-                          >
-                            <i class="mdi mdi-facebook"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-info text-white border-info"
-                          >
-                            <i class="mdi mdi-twitter"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-danger text-white border-danger"
-                          >
-                            <i class="mdi mdi-google"></i>
-                          </a>
-                        </li>
-                      </ul>
+                      <b-button-group class="btn-block">
+                        <b-button variant="primary" class="facebook"
+                          ><i class="fab fa-facebook mr-1" />Facebook</b-button
+                        >
+                        <b-button variant="primary" class="google"
+                          ><i class="fab fa-google mr-1" />Google</b-button
+                        >
+                      </b-button-group>
                     </div>
                     <div class="mt-4 text-center">
                       <p class="text-muted mb-0">
-                        Already have an account ?
+                        ¿Ya tienes una cuenta?
                         <nuxt-link
-                          to="/account/login"
+                          to="/auth/login"
                           class="font-weight-medium text-primary"
-                          >Login</nuxt-link
+                          >Inicia sesión</nuxt-link
                         >
                       </p>
                     </div>
@@ -186,8 +155,8 @@
             </div>
             <div class="mt-5 text-center">
               <p>
-                © {{ new Date().getFullYear() }} Minible. Crafted with
-                <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                © {{ new Date().getFullYear() }} {{ appName }}. Hecho con
+                <i class="mdi mdi-heart text-danger"></i> para todos
               </p>
             </div>
           </div>
@@ -208,6 +177,8 @@ export default {
   layout: 'auth',
   data() {
     return {
+      title: 'Registro',
+      appName: process.env.APP_NAME,
       notification: {
         show: false,
         type: 'alert-success',
@@ -221,7 +192,6 @@ export default {
       submitted: false,
       tryingToRegister: false,
       isRegisterError: false,
-      title: 'Register',
     }
   },
   computed: {},
@@ -246,7 +216,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.title} | Nuxtjs Responsive Bootstrap 4 Admin Dashboard`,
+      title: `${this.title} | ${this.appName}`,
     }
   },
   validations: {
@@ -265,3 +235,11 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.facebook {
+  background-color: #5a76e0;
+}
+.google {
+  background-color: #f9686c;
+}
+</style>

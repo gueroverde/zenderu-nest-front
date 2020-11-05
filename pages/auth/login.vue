@@ -7,58 +7,35 @@
     </div>
     <div class="account-pages my-5 pt-sm-5">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-center">
-              <nuxt-link to="/" class="mb-5 d-block auth-logo">
-                <img
-                  src="~/assets/images/logo-dark.png"
-                  alt=""
-                  height="22"
-                  class="logo logo-dark"
-                />
-                <img
-                  src="~/assets/images/logo-light.png"
-                  alt=""
-                  height="22"
-                  class="logo logo-light"
-                />
-              </nuxt-link>
-            </div>
-          </div>
-        </div>
         <div class="row align-items-center justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="card">
               <div class="card-body p-4">
-                <div class="text-center mt-2">
-                  <h5 class="text-primary">Welcome Back !</h5>
-                  <p class="text-muted">Sign in to continue to Minible.</p>
+                <div class="text-start mt-2">
+                  <img
+                    src="~/assets/images/logo-dark.svg"
+                    alt=""
+                    height="50"
+                    class="logo logo-dark"
+                  />
                 </div>
                 <div class="p-2 mt-4">
                   <form>
                     <div class="form-group">
-                      <label for="username">Username</label>
                       <input
-                        id="username"
-                        type="text"
+                        id="email"
+                        type="email"
                         class="form-control"
-                        placeholder="Enter username"
+                        placeholder="Email"
                       />
                     </div>
 
                     <div class="form-group">
-                      <div class="float-right">
-                        <nuxt-link to="/auth/recoverpwd" class="text-muted">
-                          Forgot password?</nuxt-link
-                        >
-                      </div>
-                      <label for="userpassword">Password</label>
                       <input
                         id="userpassword"
                         type="password"
                         class="form-control"
-                        placeholder="Enter password"
+                        placeholder="Contraseña"
                       />
                     </div>
 
@@ -71,60 +48,49 @@
                       <label
                         class="custom-control-label"
                         for="auth-remember-check"
-                        >Remember me</label
+                        >Recordarme</label
                       >
+                      <div class="float-right">
+                        <nuxt-link to="/auth/recoverpwd" class="text-muted">
+                          ¿Olvidaste tu contraseña?</nuxt-link
+                        >
+                      </div>
                     </div>
 
                     <div class="mt-3 text-right">
                       <button
-                        class="btn btn-primary w-sm waves-effect waves-light"
+                        class="btn btn-primary w-sm waves-effect waves-light btn-block"
                         type="submit"
                       >
-                        Log In
+                        Iniciar sesión
                       </button>
                     </div>
 
                     <div class="mt-4 text-center">
                       <div class="signin-other-title">
-                        <h5 class="font-size-14 mb-3 title">Sign in with</h5>
+                        <h5 class="font-size-14 mb-3 title">
+                          Inicia sesión con
+                        </h5>
                       </div>
 
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-primary text-white border-primary"
-                          >
-                            <i class="mdi mdi-facebook"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-info text-white border-info"
-                          >
-                            <i class="mdi mdi-twitter"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a
-                            href="javascript:void()"
-                            class="social-list-item bg-danger text-white border-danger"
-                          >
-                            <i class="mdi mdi-google"></i>
-                          </a>
-                        </li>
-                      </ul>
+                      <b-button-group class="btn-block">
+                        <b-button variant="primary" class="facebook"
+                          ><i class="fab fa-facebook mr-1" />Facebook</b-button
+                        >
+                        <b-button variant="primary" class="google"
+                          ><i class="fab fa-google mr-1" />Google</b-button
+                        >
+                      </b-button-group>
                     </div>
 
                     <div class="mt-4 text-center">
                       <p class="mb-0">
-                        Don't have an account ?
+                        ¿No tienes una cuenta?
                         <nuxt-link
                           to="/auth/register"
                           class="font-weight-medium text-primary"
                         >
-                          Signup now</nuxt-link
+                          Registrate Ahora</nuxt-link
                         >
                       </p>
                     </div>
@@ -135,8 +101,8 @@
 
             <div class="mt-5 text-center">
               <p>
-                © {{ new Date().getFullYear() }} Minible. Crafted with
-                <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                © {{ new Date().getFullYear() }} {{ appName }}. Hecho con
+                <i class="mdi mdi-heart text-danger"></i> para todos
               </p>
             </div>
           </div>
@@ -156,13 +122,22 @@ export default {
   layout: 'auth',
   data() {
     return {
-      title: 'Log in',
+      appName: process.env.APP_NAME,
+      title: 'Inicio de sesión',
     }
   },
   head() {
     return {
-      title: `${this.title} | Nuxtjs Responsive Bootstrap 4 Admin Dashboard`,
+      title: `${this.title} | ${this.appName}`,
     }
   },
 }
 </script>
+<style lang="scss" scoped>
+.facebook {
+  background-color: #5a76e0;
+}
+.google {
+  background-color: #f9686c;
+}
+</style>

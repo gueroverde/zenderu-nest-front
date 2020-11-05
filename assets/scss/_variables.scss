@@ -119,6 +119,15 @@ $green:   #34c38f;
 $teal:    #050505;
 $cyan:    #50a5f1;
 
+
+$zenderuPrincipal: #774896;
+$zenderuSecondary: #414395;
+$zenderuComplementary: #BB3F8F;
+$zenderuSuccess: #38AE6C;
+$zenderuWarning: #E5CC3C;
+$zenderuInformative: #419696;
+$zenderuError: #B32C1D;
+
 $colors: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $colors: map-merge(
@@ -140,12 +149,12 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $blue;
-$secondary:     $gray-600;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
+$primary:       $zenderuPrincipal;
+$secondary:     $zenderuSecondary;
+$success:       $zenderuSuccess;
+$info:          $zenderuInformative;
+$warning:       $zenderuWarning;
+$danger:        $zenderuError;
 $light:         $gray-200;
 $dark:          $gray-800;
 $purple:        $purple;
