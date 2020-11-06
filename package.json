@@ -12,6 +12,7 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
     "bootstrap-vue": "^2.18.1",
@@ -20,7 +21,9 @@
     "simplebar-vue": "^1.6.0",
     "v-click-outside": "^3.1.2",
     "vue-form-wizard": "^0.8.4",
+    "vue-headroom": "^0.10.1",
     "vue-i18n": "^8.22.1",
+    "vue-scrollto": "^2.20.0",
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {

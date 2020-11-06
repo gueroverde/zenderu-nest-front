@@ -17,10 +17,16 @@ export default {
     '~/plugins/vuelidate.js',
     '~/plugins/simplebar.js',
     '~/plugins/vue-click-outside.js',
+    '~/plugins/vue-headroom.js',
   ],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
-  modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios', '@nuxtjs/pwa'],
+  modules: [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    'vue-scrollto/nuxt',
+  ],
   axios: {},
   build: {},
 }

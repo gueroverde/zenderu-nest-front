@@ -100,6 +100,20 @@
                     </b-form-group>
                     <div class="custom-control custom-checkbox">
                       <input
+                        id="expert-condition-check"
+                        v-model="user.expert"
+                        type="checkbox"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="expert-condition-check"
+                      >
+                        Registrarse como experto
+                      </label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input
                         id="auth-terms-condition-check"
                         type="checkbox"
                         class="custom-control-input"
@@ -185,9 +199,10 @@ export default {
         message: 'register sucessfully',
       },
       user: {
-        username: '',
+        fullName: '',
         email: '',
         password: '',
+        expert: false,
       },
       submitted: false,
       tryingToRegister: false,
@@ -200,9 +215,10 @@ export default {
     // Try to register the user in with the email, username
     // and password they provided.
     tryToRegisterIn() {
+      this.$router.push('/auth/setup')
       this.submitted = true
       // stop here if form is invalid
-      this.$v.$touch()
+      // this.$v.$touch()
 
       if (this.$v.$invalid) {
       } else {
@@ -210,6 +226,7 @@ export default {
         if (email && username && password) {
           alert('register user', this.user)
           this.notification.show = true
+          this.$router.push('/auth/setup')
         }
       }
     },
